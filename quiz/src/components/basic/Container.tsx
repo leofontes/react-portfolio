@@ -1,9 +1,13 @@
 import React, {FunctionComponent} from 'react'
-import { StyleSheet, css } from 'aphrodite'
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
 import Colors from '../../utils/colors'
 
-const Container: FunctionComponent = ({children}) => {
-  return <div className={css(styles.container)}>{children}</div>
+interface Props {
+  propStyles?: StyleDeclarationValue
+}
+
+const Container: FunctionComponent<Props> = ({children, propStyles}) => {
+  return <div className={css(styles.container, propStyles)}>{children}</div>
 }
 
 const styles = StyleSheet.create({
